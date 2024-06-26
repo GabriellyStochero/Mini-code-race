@@ -1,0 +1,46 @@
+mesasLivers = [1,2,3,4,5,6,7,8,9]
+opcao = 0 
+mesasOcupadas = []
+cadastro  = []
+while True:
+    print(" ---- LA PASTA FELICHE ----")
+    print("")
+    print("1 - Fazer cadastro")
+    print("2 - Reservar mesas")
+    print("3 - Valor das mesas")
+    print("4 - sair")
+    print("")
+    opcao = int(input("Digite a opção que deseja:"))
+    if opcao == 1:
+        cadastrar = input("voce possui cadastro? SIM / NÃO: ").upper()
+        if cadastrar == "NAO":
+            print("seu cadastro foi iniciado")
+            cpf = input("digite seu cpf: ")
+            cadastro.append(cpf)
+            print(cadastro)
+    elif opcao == 2:
+        print("As mesas disponíveis são:",mesasLivers)
+        reserva = int(input("Digite o número da mesa que você deseja reservar:"))
+        while reserva not in mesasLivers:
+            print("Esta mesa já está reservada, selecione outra")
+            reserva = int(input("Digite o número da mesa que você deseja reservar:"))
+        for i in range(len(mesasLivers)):            
+            if reserva not in mesasOcupadas:
+                print("O valor das mesas R$80,00")
+                pagamento = float(input("Digite quanto de dinheiro foi forncedio pelo cliente:"))
+                troco = pagamento - 80 
+                while 80 > pagamento:
+                    print("Dinheiro insuficiente!")
+                    pagamento = float(input("Digite quanto de dinheiro foi forncedio pelo cliente:"))
+                if 80 < pagamento:
+                    print("O troco é de:R$",troco)
+                    mesasOcupadas.append(reserva)
+                    mesasLivers.remove(reserva)
+                    print("Mesa reservada!")
+                if 80 == pagamento:
+                    print("Sem troco")
+                    mesasOcupadas.append(reserva)
+                    mesasLivers.remove(reserva)
+                    print("Mesa reservada!")
+    elif opcao == 4:
+        break
