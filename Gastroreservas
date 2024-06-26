@@ -42,5 +42,7 @@ while True:
                     mesasOcupadas.append(reserva)
                     mesasLivers.remove(reserva)
                     print("Mesa reservada!")
+     elif opcao == 3:
+        print("Valor das mesas é R$80,00.")
     elif opcao == 4:
         break
